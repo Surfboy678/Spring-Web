@@ -44,7 +44,7 @@ public class TaskController {
 
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "createTask",consumes = APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.POST, value = "createTask")
     public  void createTask(@RequestBody TaskDto taskDto){
         service.saveTask(taskMapper.mapToTask(taskDto));
 
