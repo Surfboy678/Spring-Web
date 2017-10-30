@@ -10,13 +10,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
 public class DbService {
 
     @Autowired
     private TaskRepository repository;
 
-    public List<Task> getAllTask(){
+    public List<Task> getAllTasks(){
         return repository.findAll();
     }
 
@@ -27,4 +28,7 @@ public class DbService {
     public Task saveTask(final Task task){
         return repository.save(task);
     }
-}
+
+
+    }
+

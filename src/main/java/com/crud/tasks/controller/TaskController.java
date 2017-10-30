@@ -21,7 +21,7 @@ public class TaskController {
 
     @RequestMapping(method = RequestMethod.GET, value = "getTasks")
     public List<TaskDto>getTasks(){
-        return taskMapper.mapToTaskDtoList(service.getAllTask());
+        return taskMapper.mapToTaskDtoList(service.getAllTasks());
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "getTask")
@@ -44,9 +44,9 @@ public class TaskController {
 
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "createTask")
-    public  void createTask(@RequestBody TaskDto taskDto){
-        service.saveTask(taskMapper.mapToTask(taskDto));
-
+    @RequestMapping(method = RequestMethod.POST, value = "createTask", consumes = APPLICATION_JSON_VALUE)
+    public void createTask(@RequestBody TaskDto taskDto) {
+       service.saveTask(taskMapper.mapToTask(taskDto));
     }
+
 }
