@@ -1,6 +1,6 @@
 package com.crud.tasks.controller;
 
-import com.crud.tasks.domain.TaskDto;
+import com.crud.tasks.domian.TaskDto;
 import com.crud.tasks.mapper.TaskMapper;
 import com.crud.tasks.service.DbService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,14 +26,14 @@ public class TaskController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "getTask")
-    public List<TaskDto> getTask(){
-        return new ArrayList<>();
+    public TaskDto getTask(@RequestParam Long taskId) throws TaskNotFoundException{
+        return taskMapper.mapToTaskDto(service.getTask(taskId).orElseThrow(TaskNotFoundException::new));
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "getTask_duplicated")
-    public TaskDto getTask(@RequestParam Long taskId){
-        return new TaskDto((long)1,"test title","test_content");
-    }
+    //@RequestMapping(method = RequestMethod.GET, value = "getTask_duplicated")
+    //public TaskDto getTask(@RequestParam Long taskId){
+    //    return new TaskDto((long)1,"test title","test_content");
+    //}
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteTask")
     public void deleteTask(@RequestParam Long taskId) throws TaskNotFoundException {
@@ -51,4 +51,3 @@ public class TaskController {
 
 
 }
-
