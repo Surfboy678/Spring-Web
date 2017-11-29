@@ -20,38 +20,43 @@ import java.util.stream.Collectors;
 @RequestMapping("/v1/trello")
 public class TrelloController {
 
-   // private static final String KODILLA = "kodilla";
+    // private static final String KODILLA = "kodilla";
 
     @Autowired
     private TrelloClient trelloClient;
 
     @RequestMapping(method = RequestMethod.GET, value = "getTrelloBoards")
-    public void getTrelloBoards() {
+    public List<TrelloBoardDto> getTrelloBoards() {
+        return trelloClient.getTrelloBoards();
+    }
+}
 
-        List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
+        //List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
 
-        trelloBoards.forEach(trelloBoardDto -> {
+        //trelloBoards.forEach(trelloBoardDto -> {
 
-            System.out.println(trelloBoardDto.getName() + " - " + trelloBoardDto.getId());
+           // System.out.println(trelloBoardDto.getName() + " - " + trelloBoardDto.getId());
 
-            System.out.println("This board contains lists: ");
+            //System.out.println("This board contains lists: ");
 
-            trelloBoardDto.getLists().forEach(trelloList ->
-                    System.out.println(trelloList.getName() + " - " + trelloList.getId() + " - " +trelloList.isClosed()));
+            //trelloBoardDto.getLists().forEach(trelloList ->
+              //      System.out.println(trelloList.getName() + " - " + trelloList.getId() + " - " +trelloList.isClosed()));
 
-        });
+        //});
            // List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
             //List<TrelloBoardDto> filteredTrelloBoards = trelloBoards.stream()
               //      .filter(t -> t.getId() != null)
                 //    .filter(t->t.getName().contains(KODILLA))
                   //  .collect(Collectors.toList());
            // return filteredTrelloBoards;
-        }
-
-    @RequestMapping(method = RequestMethod.POST,value = "createTrelloCard")
-    public CreatedTrelloCard createTrelloCard(@RequestBody TrelloCardDto trelloCardDto){
-        return  trelloClient.createNewCard(trelloCardDto);
-    }
+        //}
 
 
-    }
+
+    //@RequestMapping(method = RequestMethod.POST,value = "createTrelloCard")
+    //public CreatedTrelloCard createTrelloCard(@RequestBody TrelloCardDto trelloCardDto){
+        //return  trelloClient.createNewCard(trelloCardDto);
+    //}
+
+
+    //}
