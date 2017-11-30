@@ -2,25 +2,19 @@ package com.crud.tasks.controller;
 
 import com.crud.tasks.domian.CreatedTrelloCard;
 import com.crud.tasks.domian.TrelloBoardDto;
-
 import com.crud.tasks.domian.TrelloCardDto;
 import com.crud.tasks.trello.client.TrelloClient;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/v1/trello")
 public class TrelloController {
-
-    // private static final String KODILLA = "kodilla";
 
     @Autowired
     private TrelloClient trelloClient;
@@ -30,33 +24,21 @@ public class TrelloController {
         return trelloClient.getTrelloBoards();
     }
 }
-
         //List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
 
-        //trelloBoards.forEach(trelloBoardDto -> {
+//        trelloBoards.forEach(trelloBoardDto -> {
 
-           // System.out.println(trelloBoardDto.getName() + " - " + trelloBoardDto.getId());
+//            System.out.println(trelloBoardDto.getName() + " - " + trelloBoardDto.getId());
 
-            //System.out.println("This board contains lists: ");
+        //          System.out.println("This board contains lists: ");
 
-            //trelloBoardDto.getLists().forEach(trelloList ->
-              //      System.out.println(trelloList.getName() + " - " + trelloList.getId() + " - " +trelloList.isClosed()));
+        //        trelloBoardDto.getLists().forEach(trelloList ->
+        //              System.out.println(trelloList.getName() + " - " + trelloList.getId() + " - " + trelloList.isClosed()));
 
-        //});
-           // List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
-            //List<TrelloBoardDto> filteredTrelloBoards = trelloBoards.stream()
-              //      .filter(t -> t.getId() != null)
-                //    .filter(t->t.getName().contains(KODILLA))
-                  //  .collect(Collectors.toList());
-           // return filteredTrelloBoards;
-        //}
+  //  }
 
-
-
-   // @RequestMapping(method = RequestMethod.POST,value = "createTrelloCard")
-    //public CreatedTrelloCard createTrelloCard(@RequestBody TrelloCardDto trelloCardDto){
-      //  return  trelloClient.createNewCard(trelloCardDto);
-    //}
-
-
-    //}
+       // @RequestMapping(method = RequestMethod.POST, value = "createTrelloCard")
+        //        public CreatedTrelloCard createdTrelloCard(@RequestBody TrelloCardDto trelloCardDto){
+       // return trelloClient.createNewCard(trelloCardDto);
+    //    }
+    //    }
