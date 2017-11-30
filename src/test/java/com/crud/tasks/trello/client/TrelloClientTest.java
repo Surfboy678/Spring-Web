@@ -4,6 +4,9 @@ import com.crud.tasks.domian.CreatedTrelloCard;
 import com.crud.tasks.domian.TrelloBoardDto;
 import com.crud.tasks.domian.TrelloCardDto;
 import com.crud.tasks.domian.TrelloListDto;
+import com.crud.tasks.domian.badges.AttachmentByType;
+import com.crud.tasks.domian.badges.Trello;
+import com.crud.tasks.domian.badges.TrelloBadges;
 import com.crud.tasks.trello.config.TrelloConfig;
 import javafx.beans.binding.When;
 import org.junit.Before;
@@ -62,9 +65,9 @@ public class TrelloClientTest {
 
         //Then
         assertEquals(0,fetchedTrelloBoards.size());
-//        assertEquals("test_id", fetchedTrelloBoards.get(0).getId());
-//        assertEquals("test_board", fetchedTrelloBoards.get(0).getName());
-//        assertEquals(new ArrayList<>(),fetchedTrelloBoards.get(0).getLists());
+        assertEquals("test_id", fetchedTrelloBoards.get(0).getId());
+        assertEquals("test_board", fetchedTrelloBoards.get(0).getName());
+        assertEquals(new ArrayList<>(),fetchedTrelloBoards.get(0).getLists());
     }
 
     @Test
@@ -80,7 +83,9 @@ public class TrelloClientTest {
         CreatedTrelloCard createdTrelloCardDto = new CreatedTrelloCard(
                 "1",
                 "Test task",
-                "http://test.com"
+                "http://test.com",
+                new TrelloBadges(0, new AttachmentByType(new Trello(0, 0)))
+
 
         );
         when(restTemplate.postForObject(uri, null, CreatedTrelloCard.class)).thenReturn(createdTrelloCardDto);
@@ -100,7 +105,7 @@ public class TrelloClientTest {
         trelloBoards[0] = new TrelloBoardDto("test_id", "test_board", new ArrayList<>());
         URI uri = new URI("http://test.com/members/null/boards?key=test&token=test&fields=id&fields=name&lists=all");
 
-        when(restTemplate.getForObject(uri, TrelloBoardDto[].class)).thenReturn(null);
+       // when(restTemplate.getForObject(uri, TrelloBoardDto[].class)).thenReturn(null);
 
         //When
         List<TrelloBoardDto> fetchedTrelloBoards = trelloClient.getTrelloBoards();
