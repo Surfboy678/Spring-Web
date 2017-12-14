@@ -16,7 +16,7 @@ import org.springframework.mail.javamail.MimeMessagePreparator;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-@RunWith(MockitoJUnitRunner.class)
+/*@RunWith(MockitoJUnitRunner.class)
 public class SimpleEmailServiceTest {
     @InjectMocks
     private SimpleEmailService simpleEmailService;
@@ -45,4 +45,4 @@ public class SimpleEmailServiceTest {
         verify(javaMailSender, times(1)).send(mailMessage);
         System.out.println(mail.getToCc());
     } */
-}
+//}
