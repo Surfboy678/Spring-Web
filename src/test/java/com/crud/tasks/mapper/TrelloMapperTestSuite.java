@@ -63,7 +63,7 @@ public class TrelloMapperTestSuite {
         //When
         List<TrelloListDto> trelloListDtos = trelloMapper.mapToListDto(trelloLists);
 
-        //then
+        //Then
         Assert.assertEquals(3, trelloListDtos.size());
         Assert.assertEquals(true, trelloLists.get(2).isClosed());
     }
@@ -76,16 +76,16 @@ public class TrelloMapperTestSuite {
 
         List<TrelloListDto> trelloListDtos = new ArrayList<TrelloListDto>(Arrays.asList(trelloListDto1, trelloListDto2, trelloListDto3));
 
-        //when
+        //When
         List<TrelloList> trelloLists = trelloMapper.mapToList(trelloListDtos);
 
-        //then
+        //Then
         Assert.assertEquals(3, trelloLists.size());
         Assert.assertEquals("List2", trelloLists.get(1).getName());
     }
     @Test
     public void TestMapToBoards() {
-        //given
+        //Given
         TrelloListDto trelloListDto1 = new TrelloListDto("Id1", "list1", false);
         TrelloListDto trelloListDto2 = new TrelloListDto("Id2", "list2", false);
         TrelloListDto trelloListDto3 = new TrelloListDto("Id3", "list3", true);
@@ -100,17 +100,17 @@ public class TrelloMapperTestSuite {
 
         List<TrelloBoardDto> trelloBoardDtos = new ArrayList<TrelloBoardDto>(Arrays.asList(trelloBoardDto1, trelloBoardDto2, trelloBoardDto3));
 
-        //when
+        //When
         List<TrelloBoard> trelloBoards = trelloMapper.mapToBoards(trelloBoardDtos);
 
-        //then
+        //Then
         Assert.assertEquals(3, trelloBoards.size());
         Assert.assertEquals("table1", trelloBoards.get(0).getName());
         Assert.assertEquals(5, trelloBoards.get(1).getLists().size());
     }
     @Test
     public void TestMapToBoardsDto() {
-        //given
+        //Given
         TrelloList trelloList1 = new TrelloList("Id1", "list1", false);
         TrelloList trelloList2 = new TrelloList("Id2", "list2", false);
         TrelloList trelloList3 = new TrelloList("Id3", "list3", true);
@@ -125,10 +125,10 @@ public class TrelloMapperTestSuite {
 
         List<TrelloBoard> trelloBoards = new ArrayList<TrelloBoard>(Arrays.asList(trelloBoard1, trelloBoard2, trelloBoard3));
 
-        //when
+        //When
         List<TrelloBoardDto> trelloBoardDtos = trelloMapper.mapToBoardsDto(trelloBoards);
 
-        //then
+        //Then
         Assert.assertEquals(true, trelloBoardDtos.get(0).getLists().get(2).isClosed());
         Assert.assertEquals(3, trelloBoards.size());
     }
