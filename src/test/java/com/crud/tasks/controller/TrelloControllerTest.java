@@ -43,7 +43,7 @@ public class TrelloControllerTest {
         when(trelloFacade.fetchTrelloBoards()).thenReturn(trelloBoards);
 
         //when&then
-        mockMvc.perform(get("/v1/trello/boards").contentType(MediaType.APPLICATION_JSON))
+        mockMvc.perform(get("/v1/trello/getTrelloBoards").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().is(200))
                 .andExpect(jsonPath("$", hasSize(0)));
 
@@ -69,7 +69,7 @@ public class TrelloControllerTest {
                 //Trello list fields
                 .andExpect(jsonPath("$[0].lists", hasSize(1)))
                 .andExpect(jsonPath("$[0].lists[0].id", is("1")))
-                .andExpect(jsonPath("$[0].lists[0].name", is("Test List")))
+                .andExpect(jsonPath("$[0].lists[0].name", is("Test list")))
                 .andExpect(jsonPath("$[0].lists[0].closed", is(false)));
 
     }
@@ -93,12 +93,12 @@ public class TrelloControllerTest {
         String jsonContent = gson.toJson(trelloCardDto);
 
         //When & Then
-        mockMvc.perform(post("/v1/trello/createdTrelloCard")
+        mockMvc.perform(post("/v1/trello/createTrelloCard")
                 .contentType(MediaType.APPLICATION_JSON)
                 .characterEncoding("UTF-8")
                 .content(jsonContent))
                 .andExpect(jsonPath("$.id", is("323")))
-                .andExpect(jsonPath("$.name", is("name")))
+                .andExpect(jsonPath("$.name", is("Test")))
                 .andExpect(jsonPath("$.shortUrl", is("http//test.com")));
     }
 

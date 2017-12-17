@@ -1,5 +1,6 @@
 package com.crud.tasks.trello.facade;
 
+
 import com.crud.tasks.domian.*;
 import com.crud.tasks.domian.mapper.TrelloMapper;
 import com.crud.tasks.service.TrelloService;
@@ -9,8 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
-import static java.util.stream.Collectors.toList;
+
 
 @Component
 public class TrelloFacade {
