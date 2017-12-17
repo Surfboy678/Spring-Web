@@ -50,7 +50,7 @@ public class TaskControllerTest {
         //Given
         TaskDto taskDto = new TaskDto(1L,"title1","content1");
         when(taskController.getTask(1L)).thenReturn(taskDto);
-        //when & Then
+        //When & Then
         mockMvc.perform(get("/v1/task/getTask").param("taskId","1").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(0)))
@@ -83,7 +83,7 @@ public class TaskControllerTest {
     }
 
     @Test
-    public void testCreateTask() throws Exception {
+    public void shouldCreateTask() throws Exception {
         //Given
         TaskDto taskDto = new TaskDto(1L,"1","1");
         Gson gson = new Gson();
