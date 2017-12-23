@@ -49,5 +49,7 @@ dependencies {
 
 	compile('org.springframework.boot:spring-boot-starter-mail:1.5.7.RELEASE')
 
+	//Thymeleaf
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 
 }
