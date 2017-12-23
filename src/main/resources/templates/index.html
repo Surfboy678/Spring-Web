@@ -2,44 +2,44 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>My welcome page</title>
+    <title>my welcome page</title>
 </head>
 <body>
-    <h1>First impression of my page</h1>
+<h1>first impression of my page</h1>
 
+<!--/*thymesVar id="variable" type="com.crud.tasks.controller.StaticWebPageController"*/-->
 
-
-<!--/*@thymesVar id="variable"
-<span th:text="${variable}"><</span>
+<span th:text="${variable}"></span>
 
 <br>
+<!--/*@thymesVar id="one" type="com.crud.tasks.controller.StaticWebPageController"*/-->
+<!--/*@thymesVar id="two" type="com.crud.tasks.controller.StaticWebPageController"*/-->
+<span th:text="${one}+${two}"></span>
 
-<!--/*@thymesVar id="one"  type="com.crud.task.controller.StaticWebPageController"*/-->
-<!--/*@thymesVar id="two"  type="com.crud.task.controller.StaticWebPageController"*/-->
-<span th:text="${1} + ${2}"></span>
+   <br>
 
-    <br>
-    <span th:text="${2}"></span>
-    <span>*</span>
-    <span th:text="${2}"></span>
-    <span>=</span>
-    <span th:text="${2}*${2}"></span>
-    <br>
-    <span th:text="${2}"></span>
-    <span>*</span>
-    <span th:text="${2}"></span>
-    <span>+</span>
-    <span th:text="${2}"></span>
-    <span>=</span>
-    <span th:text="${2}*${2}+${2}"></span>
-    <br>
-    <span th:text="${2}"></span>
-    <span>-</span>
-    <span th:text="${2}"></span>
-    <span>*</span>
-    <span th:text="${2}"></span>
-    <span>=</span>
-    <span th:text="${2}-${2}*${2}"></span>
+<span th:text="${two}"></span>
+<span>*</span>
+<span th:text="${two}"></span>
+<span>=</span>
+<span th:text="${two}*${two}"></span>
+<br>
+<span th:text="${two}"></span>
+<span>*</span>
+<span th:text="${two}"></span>
+<span>+</span>
+<span th:text="${two}"></span>
+<span>=</span>
+<span th:text="${two}*${two}+${two}"></span>
+<br>
+<span th:text="${two}"></span>
+<span>-</span>
+<span th:text="${two}"></span>
+<span>*</span>
+<span th:text="${two}"></span>
+<span>=</span>
+<span th:text="${two}-${two}*${two}"></span>
 
 </body>
+
 </html>
